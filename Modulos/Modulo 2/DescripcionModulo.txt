@@ -1,0 +1,1 @@
+Módulo 2: Captura de imágenes o video: Utilizaremos una cámara web o una cámara integrada para tomar fotos periódicamente.
