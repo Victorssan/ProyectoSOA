@@ -1,0 +1,13 @@
+/* Archivo.proto: Definimos la estructura del mensaje "ConexionCamara",
+la cual utilizaremos para transmitir información sobre la conexión de una cámara.*/
+
+syntax = "proto3";
+
+package camara;
+
+message ConexionCamara {
+  string nombre = 1;   /*nombre de la camara*/
+  int32 resolucion_ancho = 2;
+  int32 resolucion_alto = 3;
+  float tasa_fotogramas = 4;
+}
