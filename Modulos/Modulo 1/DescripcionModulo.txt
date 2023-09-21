@@ -1,0 +1,1 @@
+Módulo 1: Conexión con la Cámara:  Estableceremos la conexión y la prepararemos para la captura de imágenes o video.
