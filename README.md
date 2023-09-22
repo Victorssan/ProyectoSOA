@@ -1,4 +1,7 @@
 # ProyectoSOA
+
+#Sistema de Prevención de Choques
+
 Integrantes del equipo:
 - DE JESUS LUNA OSCAR
 - MARTINEZ HIGAREDA JESUS EDUARDO
