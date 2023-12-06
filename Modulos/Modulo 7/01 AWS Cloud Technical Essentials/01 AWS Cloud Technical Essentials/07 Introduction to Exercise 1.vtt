@@ -1,0 +1,137 @@
+WEBVTT
+
+1
+00:00:01.050 --> 00:00:04.320
+- Es hora de realizar su primer ejercicio práctico con AWS.
+
+2
+00:00:04.320 --> 00:00:06.510
+Antes de que pueda comenzar a construir en AWS,
+
+3
+00:00:06.510 --> 00:00:08.880
+tendrá que tener una cuenta de AWS.
+
+4
+00:00:08.880 --> 00:00:10.140
+Para su primer ejercicio,
+
+5
+00:00:10.140 --> 00:00:12.780
+le pedimos que cree una cuenta con AWS,
+
+6
+00:00:12.780 --> 00:00:13.890
+verifique esa cuenta,
+
+7
+00:00:13.890 --> 00:00:16.470
+y luego configurará algunas alertas de facturación.
+
+8
+00:00:16.470 --> 00:00:17.970
+Cuando cree una cuenta de AWS,
+
+9
+00:00:17.970 --> 00:00:20.130
+podrá comenzar a utilizar los servicios,
+
+10
+00:00:20.130 --> 00:00:23.340
+y muchos servicios diferentes ofrecen una capa gratuita.
+
+11
+00:00:23.340 --> 00:00:25.800
+La capa gratuita varía de un servicio a otro.
+
+12
+00:00:25.800 --> 00:00:27.330
+Todos los servicios que hemos elegido
+
+13
+00:00:27.330 --> 00:00:29.580
+para este curso tienen una capa gratuita
+
+14
+00:00:29.580 --> 00:00:31.800
+en la que puede utilizar los recursos de forma gratuita
+
+15
+00:00:31.800 --> 00:00:33.960
+durante un periodo de tiempo limitado.
+
+16
+00:00:33.960 --> 00:00:36.690
+Si ya tiene una cuenta que está intentando utilizar,
+
+17
+00:00:36.690 --> 00:00:39.540
+existe la posibilidad de que no pueda optar a la capa gratuita
+
+18
+00:00:39.540 --> 00:00:40.620
+e incurriría en gastos
+
+19
+00:00:40.620 --> 00:00:43.230
+por los ejercicios que realice en este curso.
+
+20
+00:00:43.230 --> 00:00:45.180
+Así que para este primer ejercicio,
+
+21
+00:00:45.180 --> 00:00:46.440
+es bastante sencillo
+
+22
+00:00:46.440 --> 00:00:49.770
+y estamos construyendo hacia las tareas más complejas involucradas
+
+23
+00:00:49.770 --> 00:00:53.070
+con el alojamiento de nuestra aplicación de directorio de empleados.
+
+24
+00:00:53.070 --> 00:00:55.710
+Creará y confirmará su nueva cuenta de AWS,
+
+25
+00:00:55.710 --> 00:00:57.060
+iniciará sesión en esa cuenta,
+
+26
+00:00:57.060 --> 00:01:00.270
+y luego explorará cómo realizar tareas básicas de administración,
+
+27
+00:01:00.270 --> 00:01:02.610
+como dónde encontrar la información de su cuenta
+
+28
+00:01:02.610 --> 00:01:06.780
+y cómo cambiar las regiones utilizando la consola de administración de AWS.
+
+29
+00:01:06.780 --> 00:01:08.670
+También configurará una alerta de facturación.
+
+30
+00:01:08.670 --> 00:01:10.470
+Por si acaso crea un recurso
+
+31
+00:01:10.470 --> 00:01:12.600
+y se olvida de desactivarlo o eliminarlo,
+
+32
+00:01:12.600 --> 00:01:15.480
+se le notificará que ha alcanzado un determinado umbral
+
+33
+00:01:15.480 --> 00:01:17.190
+en la cuenta de costos.
+
+34
+00:01:17.190 --> 00:01:18.090
+Eso es todo por ahora.

@@ -1,0 +1,473 @@
+WEBVTT
+
+1
+00:00:01.687 --> 00:00:03.120
+- Cuando eres dueño de la infraestructura
+
+2
+00:00:03.120 --> 00:00:05.670
+es fácil entender cómo interactúas con ella
+
+3
+00:00:05.670 --> 00:00:07.830
+porque puedes verla, tocarla
+
+4
+00:00:07.830 --> 00:00:10.350
+y trabajar con ella a todos los niveles.
+
+5
+00:00:10.350 --> 00:00:13.290
+Si tengo un servidor que he levantado en mi armario,
+
+6
+00:00:13.290 --> 00:00:16.350
+interactuar con ese servidor es fácil porque es mío.
+
+7
+00:00:16.350 --> 00:00:17.880
+Puedo tocarlo.
+
+8
+00:00:17.880 --> 00:00:20.880
+Cuando elimino la capacidad de tocar y ver algo
+
+9
+00:00:20.880 --> 00:00:23.610
+como cuando la infraestructura se convierte en virtual,
+
+10
+00:00:23.610 --> 00:00:25.380
+la forma en que trabajo con esa infraestructura
+
+11
+00:00:25.380 --> 00:00:27.480
+tiene que cambiar un poco.
+
+12
+00:00:27.480 --> 00:00:30.120
+En lugar de administrar físicamente mi infraestructura,
+
+13
+00:00:30.120 --> 00:00:31.770
+ahora la administro lógicamente
+
+14
+00:00:31.770 --> 00:00:36.270
+a través de la interfaz de programación de aplicaciones o API de AWS.
+
+15
+00:00:36.270 --> 00:00:40.710
+Así que ahora cuando creo, elimino o cambio cualquier recurso de AWS
+
+16
+00:00:40.710 --> 00:00:43.200
+ya sea un servidor virtual o un sistema de almacenamiento
+
+17
+00:00:43.200 --> 00:00:48.093
+para las fotos de los empleados, utilizo las llamadas a la API de AWS para hacerlo.
+
+18
+00:00:49.200 --> 00:00:52.260
+Puede realizar estas llamadas a la API de varias formas
+
+19
+00:00:52.260 --> 00:00:55.680
+pero las tres formas principales de las que vamos a hablar en AWS
+
+20
+00:00:55.680 --> 00:00:58.050
+son la consola de administración de AWS,
+
+21
+00:00:58.050 --> 00:00:59.850
+la interfaz de línea de comandos de AWS
+
+22
+00:00:59.850 --> 00:01:03.423
+y los kits de desarrollo de software de AWS o SDK.
+
+23
+00:01:04.470 --> 00:01:07.380
+Cuando la gente se inicia en AWS,
+
+24
+00:01:07.380 --> 00:01:10.470
+suele utilizar la consola de administración de AWS.
+
+25
+00:01:10.470 --> 00:01:12.120
+Se trata de un método basado en web
+
+26
+00:01:12.120 --> 00:01:15.150
+en el que se inicia sesión desde el navegador.
+
+27
+00:01:15.150 --> 00:01:17.040
+Lo bueno de la consola
+
+28
+00:01:17.040 --> 00:01:19.020
+es que se puede apuntar y hacer clic.
+
+29
+00:01:19.020 --> 00:01:21.450
+Simplemente haciendo clic y siguiendo las indicaciones,
+
+30
+00:01:21.450 --> 00:01:23.520
+puede comenzar a utilizar algunos de estos servicios
+
+31
+00:01:23.520 --> 00:01:26.970
+sin ningún conocimiento previo del servicio.
+
+32
+00:01:26.970 --> 00:01:29.280
+Con la consola, no hay necesidad de preocuparse
+
+33
+00:01:29.280 --> 00:01:32.223
+por la creación de scripts o por encontrar la sintaxis adecuada.
+
+34
+00:01:33.390 --> 00:01:35.280
+Cuando inicie sesión en la consola,
+
+35
+00:01:35.280 --> 00:01:37.380
+la página de inicio le mostrará los servicios
+
+36
+00:01:37.380 --> 00:01:38.970
+con los que ha trabajado recientemente
+
+37
+00:01:38.970 --> 00:01:42.120
+pero también puede elegir ver todos los servicios posibles
+
+38
+00:01:42.120 --> 00:01:44.070
+organizados en categorías relevantes
+
+39
+00:01:44.070 --> 00:01:47.970
+como computación, almacenamiento de bases de datos y más.
+
+40
+00:01:47.970 --> 00:01:50.370
+Si cambio la región a París,
+
+41
+00:01:50.370 --> 00:01:55.370
+estará realizando solicitudes a eu-west-3.console.aws.amazon.com
+
+42
+00:01:55.680 --> 00:01:58.143
+o a la consola web de la región de París.
+
+43
+00:01:59.010 --> 00:02:00.870
+Después de trabajar con la consola durante un tiempo,
+
+44
+00:02:00.870 --> 00:02:02.160
+es posible que desee alejarse
+
+45
+00:02:02.160 --> 00:02:04.800
+de la creación manual de recursos.
+
+46
+00:02:04.800 --> 00:02:06.540
+Por ejemplo, en la consola,
+
+47
+00:02:06.540 --> 00:02:08.490
+tiene que pasar por varias pantallas
+
+48
+00:02:08.490 --> 00:02:11.940
+para establecer las configuraciones para crear una máquina virtual.
+
+49
+00:02:11.940 --> 00:02:15.150
+Y si quisiera crear una segunda máquina virtual
+
+50
+00:02:15.150 --> 00:02:18.033
+tendría que volver a pasar por todo ese proceso.
+
+51
+00:02:18.870 --> 00:02:23.370
+Aunque esto es útil, también deja margen para el error humano.
+
+52
+00:02:23.370 --> 00:02:27.030
+Podría pasar por alto fácilmente una casilla de verificación o escribir mal algo
+
+53
+00:02:27.030 --> 00:02:30.870
+o incluso omitir ajustes importantes por accidente.
+
+54
+00:02:30.870 --> 00:02:33.780
+Así que cuando esté más familiarizado con AWS,
+
+55
+00:02:33.780 --> 00:02:35.940
+o si está trabajando en un entorno de producción
+
+56
+00:02:35.940 --> 00:02:39.000
+que requiere un cierto grado de gestión de riesgos,
+
+57
+00:02:39.000 --> 00:02:41.130
+debería pasarse a una herramienta que le permita
+
+58
+00:02:41.130 --> 00:02:44.280
+guionizar o programar estas llamadas a la API.
+
+59
+00:02:44.280 --> 00:02:45.570
+Una de estas herramientas se llama
+
+60
+00:02:45.570 --> 00:02:49.200
+la interfaz de línea de comandos de AWS o CLI.
+
+61
+00:02:49.200 --> 00:02:51.870
+Puede utilizar esta herramienta de un par de maneras.
+
+62
+00:02:51.870 --> 00:02:54.660
+Una es descargar la herramienta y luego utilizar el terminal
+
+63
+00:02:54.660 --> 00:02:59.250
+en su máquina para crear y configurar los servicios de AWS.
+
+64
+00:02:59.250 --> 00:03:01.170
+Otra es acceder a la CLI
+
+65
+00:03:01.170 --> 00:03:03.600
+mediante el uso de AWS Cloud Shell,
+
+66
+00:03:03.600 --> 00:03:06.180
+que se puede hacer a través de la consola.
+
+67
+00:03:06.180 --> 00:03:09.240
+Con ambas opciones, en lugar de tener una GUI
+
+68
+00:03:09.240 --> 00:03:11.550
+como la consola para interactuar,
+
+69
+00:03:11.550 --> 00:03:16.550
+usted ejecuta, crea comandos utilizando una sintaxis definida de AWS.
+
+70
+00:03:16.770 --> 00:03:20.010
+Por ejemplo, si quisiera lanzar una máquina virtual
+
+71
+00:03:20.010 --> 00:03:22.830
+con la CLI a través de Cloud Shell,
+
+72
+00:03:22.830 --> 00:03:25.980
+primero utilizo este atajo rápido para abrir una sesión.
+
+73
+00:03:25.980 --> 00:03:29.040
+Una vez iniciada mi sesión, escribo AWS
+
+74
+00:03:29.040 --> 00:03:32.190
+que es como sabemos que interactuamos con la API,
+
+75
+00:03:32.190 --> 00:03:34.290
+luego escribo el servicio.
+
+76
+00:03:34.290 --> 00:03:36.450
+En este caso, es EC2,
+
+77
+00:03:36.450 --> 00:03:38.130
+el servicio que nos permite crear
+
+78
+00:03:38.130 --> 00:03:41.670
+y gestionar máquinas virtuales, del que aprenderemos más adelante.
+
+79
+00:03:41.670 --> 00:03:45.150
+Y luego el comando que queremos realizar en ese servicio
+
+80
+00:03:45.150 --> 00:03:47.463
+y cualquier otra configuración que queramos establecer.
+
+81
+00:03:49.200 --> 00:03:51.060
+Un comando frente a las múltiples pantallas
+
+82
+00:03:51.060 --> 00:03:53.010
+a través de las que tiene que hacer clic en la consola
+
+83
+00:03:53.010 --> 00:03:55.950
+puede ayudar a reducir los errores humanos accidentales.
+
+84
+00:03:55.950 --> 00:03:59.400
+Pero eso también significa que tiene que trabajar con una sintaxis definida
+
+85
+00:03:59.400 --> 00:04:02.490
+y conseguir que esa sintaxis sea correcta para que su comando
+
+86
+00:04:02.490 --> 00:04:04.110
+se ejecute con éxito.
+
+87
+00:04:04.110 --> 00:04:07.650
+Así que hay un cierto coste inicial en sólo entender
+
+88
+00:04:07.650 --> 00:04:10.230
+cómo formar comandos, pero después de un tiempo,
+
+89
+00:04:10.230 --> 00:04:12.720
+puede comenzar a guionizar estos comandos,
+
+90
+00:04:12.720 --> 00:04:14.160
+haciéndolos repetibles
+
+91
+00:04:14.160 --> 00:04:17.673
+lo que puede mejorar enormemente la eficiencia a largo plazo.
+
+92
+00:04:18.570 --> 00:04:20.430
+La otra herramienta que le permite interactuar
+
+93
+00:04:20.430 --> 00:04:23.100
+con la API de AWS mediante programación
+
+94
+00:04:23.100 --> 00:04:27.390
+son los Kits de Desarrollo de Software de AWS o SDKs.
+
+95
+00:04:27.390 --> 00:04:30.660
+Los SDK son creados y mantenidos por AWS
+
+96
+00:04:30.660 --> 00:04:32.790
+para los lenguajes de programación más populares
+
+97
+00:04:32.790 --> 00:04:37.790
+como Python, Java, Node.js, .NET, Ruby, etc.
+
+98
+00:04:38.700 --> 00:04:41.010
+Esto resulta útil cuando desea integrar
+
+99
+00:04:41.010 --> 00:04:44.460
+el código fuente de su aplicación con los servicios de AWS.
+
+100
+00:04:44.460 --> 00:04:47.400
+Por ejemplo, nuestra aplicación de directorio de empleados
+
+101
+00:04:47.400 --> 00:04:49.950
+se ejecuta utilizando Python y Flask.
+
+102
+00:04:49.950 --> 00:04:52.560
+Si quisiera almacenar todas las fotos de los empleados
+
+103
+00:04:52.560 --> 00:04:56.730
+incluidas las fotos de los empleados en un servicio de almacenamiento de AWS,
+
+104
+00:04:56.730 --> 00:04:59.970
+podría utilizar el SDK de Python para escribir código
+
+105
+00:04:59.970 --> 00:05:03.300
+para interactuar con ese servicio de almacenamiento de AWS.
+
+106
+00:05:03.300 --> 00:05:05.880
+La posibilidad de administrar los servicios de AWS
+
+107
+00:05:05.880 --> 00:05:08.220
+desde un lugar donde puede ejecutar código fuente
+
+108
+00:05:08.220 --> 00:05:10.680
+con condiciones, bucles, matrices, listas
+
+109
+00:05:10.680 --> 00:05:12.450
+y otros elementos de programación
+
+110
+00:05:12.450 --> 00:05:15.330
+proporciona mucha potencia y creatividad.
+
+111
+00:05:15.330 --> 00:05:18.060
+Muy bien, con esto terminamos este vídeo.
+
+112
+00:05:18.060 --> 00:05:22.410
+Para recapitular, tiene tres opciones principales para conectarse con AWS,
+
+113
+00:05:22.410 --> 00:05:25.440
+la consola, la CLI y los SDK.
+
+114
+00:05:26.670 --> 00:05:27.630
+En este curso
+
+115
+00:05:27.630 --> 00:05:29.250
+utilizaremos principalmente la consola
+
+116
+00:05:29.250 --> 00:05:30.840
+para interactuar con los servicios
+
+117
+00:05:30.840 --> 00:05:34.110
+pero siéntase libre de desafiarse a sí mismo utilizando la CLI
+
+118
+00:05:34.110 --> 00:05:35.733
+si es un poco más avanzado.

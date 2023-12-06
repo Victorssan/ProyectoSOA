@@ -1,0 +1,785 @@
+WEBVTT
+
+1
+00:00:01.410 --> 00:00:02.250
+- [Instructor] Hola a todos.
+
+2
+00:00:02.250 --> 00:00:06.210
+En este vídeo, vamos a crear el rol de IAM
+
+3
+00:00:06.210 --> 00:00:08.790
+para nuestra aplicación de directorio de empleados
+
+4
+00:00:08.790 --> 00:00:12.570
+y también veremos cómo crear usuarios,
+
+5
+00:00:12.570 --> 00:00:15.210
+y veremos las diferentes claves de acceso de AWS,
+
+6
+00:00:15.210 --> 00:00:19.560
+que se utilizan para el acceso programático a las API de AWS.
+
+7
+00:00:19.560 --> 00:00:21.600
+Así que para empezar, vamos a crear el rol
+
+8
+00:00:21.600 --> 00:00:23.970
+para nuestra aplicación seleccionando Roles
+
+9
+00:00:23.970 --> 00:00:27.270
+en la navegación de la izquierda del panel de control de IAM,
+
+10
+00:00:27.270 --> 00:00:29.193
+y luego haremos clic en Crear rol.
+
+11
+00:00:30.390 --> 00:00:31.920
+En esta página tenemos que seleccionar
+
+12
+00:00:31.920 --> 00:00:35.280
+cuál es el tipo de entidad de confianza para asumir este rol.
+
+13
+00:00:35.280 --> 00:00:38.190
+Sabemos que los roles le permiten obtener acceso
+
+14
+00:00:38.190 --> 00:00:40.770
+a las credenciales temporales que se utilizan para hacer llamadas
+
+15
+00:00:40.770 --> 00:00:43.290
+a las llamadas de la API de AWS.
+
+16
+00:00:43.290 --> 00:00:45.330
+Usted quiere asegurarse de que está restringiendo
+
+17
+00:00:45.330 --> 00:00:47.040
+quién puede asumir este rol.
+
+18
+00:00:47.040 --> 00:00:49.710
+No cualquiera puede asumir este rol, ¿verdad?
+
+19
+00:00:49.710 --> 00:00:51.810
+Así que bajo el tipo de entidad de confianza
+
+20
+00:00:51.810 --> 00:00:54.090
+tenemos el servicio de AWS.
+
+21
+00:00:54.090 --> 00:00:55.620
+Un servicio de AWS, eso sería algo
+
+22
+00:00:55.620 --> 00:00:58.320
+como una instancia EC2, una función Lambda,
+
+23
+00:00:58.320 --> 00:01:00.390
+otros servicios que están asumiendo un rol
+
+24
+00:01:00.390 --> 00:01:02.670
+para hacer llamadas a la API de AWS.
+
+25
+00:01:02.670 --> 00:01:04.320
+Usted podría tener una cuenta de AWS,
+
+26
+00:01:04.320 --> 00:01:07.980
+esto le permitiría permitir el acceso entre cuentas
+
+27
+00:01:07.980 --> 00:01:11.130
+a los permisos para los recursos en su cuenta.
+
+28
+00:01:11.130 --> 00:01:13.020
+También podría seleccionar una identidad web,
+
+29
+00:01:13.020 --> 00:01:16.770
+que permitiría a los usuarios federados asumir un papel.
+
+30
+00:01:16.770 --> 00:01:18.990
+Usted tiene una federación SAML 2.0,
+
+31
+00:01:18.990 --> 00:01:21.930
+así que si usted tiene un directorio corporativo que
+
+32
+00:01:21.930 --> 00:01:24.300
+está en las instalaciones que estaría utilizando SAML,
+
+33
+00:01:24.300 --> 00:01:27.270
+usted podría utilizar esto como su tipo de entidad de confianza
+
+34
+00:01:27.270 --> 00:01:29.597
+o usted podría crear una política de confianza personalizada.
+
+35
+00:01:29.597 --> 00:01:33.630
+Vamos a seleccionar el servicio de AWS para este
+
+36
+00:01:33.630 --> 00:01:35.820
+y luego vamos a seleccionar EC2,
+
+37
+00:01:35.820 --> 00:01:38.250
+ya que nuestra aplicación de directorio de empleados
+
+38
+00:01:38.250 --> 00:01:40.500
+se ejecutará en EC2.
+
+39
+00:01:40.500 --> 00:01:42.960
+A continuación, podemos seleccionar el botón Siguiente
+
+40
+00:01:42.960 --> 00:01:46.350
+y luego somos llevados a la página para Agregar permisos.
+
+41
+00:01:46.350 --> 00:01:49.350
+Esto enumera las diferentes políticas de permisos
+
+42
+00:01:49.350 --> 00:01:50.820
+que están en IAM,
+
+43
+00:01:50.820 --> 00:01:54.900
+y en este momento está sacando las políticas administradas de AWS
+
+44
+00:01:54.900 --> 00:01:57.720
+que existen en esta cuenta por defecto.
+
+45
+00:01:57.720 --> 00:02:00.750
+Y lo que una política administrada es, es una política
+
+46
+00:02:00.750 --> 00:02:03.420
+que es creada y administrada por AWS,
+
+47
+00:02:03.420 --> 00:02:05.010
+y así lo que quiero decir con eso es,
+
+48
+00:02:05.010 --> 00:02:08.850
+vamos a seguir adelante y mirar la una política para S3.
+
+49
+00:02:08.850 --> 00:02:12.090
+así que si escribo S3 en la barra de búsqueda y luego pulso Enter,
+
+50
+00:02:12.090 --> 00:02:16.320
+voy a expandir esta política de acceso total a Amazon S3
+
+51
+00:02:16.320 --> 00:02:18.570
+y podemos ver el JSON,
+
+52
+00:02:18.570 --> 00:02:21.810
+que son los permisos para esta política.
+
+53
+00:02:21.810 --> 00:02:24.420
+podemos ver que tenemos el efecto es Permitir,
+
+54
+00:02:24.420 --> 00:02:26.070
+que va a ser Permitir o Denegar.
+
+55
+00:02:26.070 --> 00:02:28.950
+No hay otra opción además de Permitir o Denegar,
+
+56
+00:02:28.950 --> 00:02:30.630
+y luego está la acción,
+
+57
+00:02:30.630 --> 00:02:33.630
+que va a definir qué llamadas a la API de AWS
+
+58
+00:02:33.630 --> 00:02:34.740
+se les permite hacer.
+
+59
+00:02:34.740 --> 00:02:39.740
+Así que podemos ver que tenemos S3:* y S3-object-lambda:*.
+
+60
+00:02:39.870 --> 00:02:43.500
+Eso es un comodín para determinar todas las llamadas a la API
+
+61
+00:02:43.500 --> 00:02:45.273
+se permiten en contra de este servicio,
+
+62
+00:02:46.350 --> 00:02:48.060
+y luego también tenemos el recurso aquí,
+
+63
+00:02:48.060 --> 00:02:49.590
+que también se establece en *.
+
+64
+00:02:49.590 --> 00:02:52.290
+Así que esto sería todos los recursos de S3.
+
+65
+00:02:52.290 --> 00:02:54.810
+Esta es una política muy permisiva.
+
+66
+00:02:54.810 --> 00:02:57.660
+En el mundo real, probablemente querría cambiar esto
+
+67
+00:02:57.660 --> 00:02:59.550
+para permitir sólo las llamadas a la API
+
+68
+00:02:59.550 --> 00:03:01.920
+que su aplicación necesita, nada más,
+
+69
+00:03:01.920 --> 00:03:04.890
+y sólo los recursos con los que pretende
+
+70
+00:03:04.890 --> 00:03:08.490
+que esta política esté relacionada.
+
+71
+00:03:08.490 --> 00:03:11.670
+Así que para hacer eso, tendría que crear una política personalizada.
+
+72
+00:03:11.670 --> 00:03:12.630
+Así que si me desplazo hacia arriba,
+
+73
+00:03:12.630 --> 00:03:14.970
+podría hacer clic en este botón de política personalizada,
+
+74
+00:03:14.970 --> 00:03:16.458
+que le llevaría a una nueva página
+
+75
+00:03:16.458 --> 00:03:19.410
+donde entonces podría crear su política personalizada.
+
+76
+00:03:19.410 --> 00:03:23.790
+Por ahora, vamos a utilizar las políticas gestionadas por AWS
+
+77
+00:03:23.790 --> 00:03:27.240
+y voy a seleccionar la casilla de verificación para AmazonS3FullAccess.
+
+78
+00:03:27.240 --> 00:03:30.270
+Y luego también voy a escribir DynamoDB,
+
+79
+00:03:30.270 --> 00:03:33.180
+y salir del filtro S3,
+
+80
+00:03:33.180 --> 00:03:37.080
+y luego seleccionar la política AmazonDynamoDBFullAccess
+
+81
+00:03:37.080 --> 00:03:38.010
+aquí también.
+
+82
+00:03:38.010 --> 00:03:40.080
+Porque más adelante en el curso, vamos
+
+83
+00:03:40.080 --> 00:03:44.310
+a estar utilizando DynamoDB como la base de datos para esta aplicación.
+
+84
+00:03:44.310 --> 00:03:45.750
+Así que para preparar el papel,
+
+85
+00:03:45.750 --> 00:03:48.700
+He seleccionado tanto el S3FullAccess y DynamoDBFullAccess.
+
+86
+00:03:51.120 --> 00:03:52.440
+Ahora vamos a hacer clic en Siguiente.
+
+87
+00:03:52.440 --> 00:03:53.790
+Entonces podemos dar a esto un nombre.
+
+88
+00:03:53.790 --> 00:03:56.700
+Voy a llamar a esto EmployeeWebApp,
+
+89
+00:03:56.700 --> 00:03:58.620
+y luego voy a desplazarse hacia abajo.
+
+90
+00:03:58.620 --> 00:04:01.770
+Podemos ver las entidades de confianza aquí,
+
+91
+00:04:01.770 --> 00:04:03.720
+así que esta es nuestra política de confianza.
+
+92
+00:04:03.720 --> 00:04:07.950
+Estamos permitiendo la llamada a la API STS AssumeRole,
+
+93
+00:04:07.950 --> 00:04:10.170
+y ¿a quién se le permite asumir este rol?
+
+94
+00:04:10.170 --> 00:04:12.570
+ec2.amazonaws.com.
+
+95
+00:04:12.570 --> 00:04:15.150
+Así que a una instancia EC2 se le va a permitir
+
+96
+00:04:15.150 --> 00:04:17.460
+asumir este rol solamente.
+
+97
+00:04:17.460 --> 00:04:18.600
+Muy bien, así que ahora puedo desplazarme hacia abajo
+
+98
+00:04:18.600 --> 00:04:19.950
+y luego hacer clic en Crear rol.
+
+99
+00:04:21.360 --> 00:04:22.650
+Una vez creado su rol,
+
+100
+00:04:22.650 --> 00:04:24.120
+puede entonces hacer clic en el rol,
+
+101
+00:04:24.120 --> 00:04:25.500
+lo que le llevará a la página
+
+102
+00:04:25.500 --> 00:04:28.050
+donde puede ver la información sobre este rol,
+
+103
+00:04:28.050 --> 00:04:31.440
+como el ARN, el Nombre de Recurso de Amazon,
+
+104
+00:04:31.440 --> 00:04:32.790
+y también puede desplazarse hacia abajo,
+
+105
+00:04:32.790 --> 00:04:34.680
+puede ver los permisos adjuntos,
+
+106
+00:04:34.680 --> 00:04:37.110
+podría añadir nuevos permisos si lo desea.
+
+107
+00:04:37.110 --> 00:04:39.090
+Puede simular los permisos,
+
+108
+00:04:39.090 --> 00:04:41.220
+puede ver las relaciones de confianza,
+
+109
+00:04:41.220 --> 00:04:43.950
+también puede ver cualquier etiqueta asociada a esto,
+
+110
+00:04:43.950 --> 00:04:46.170
+que son pares clave-valor.
+
+111
+00:04:46.170 --> 00:04:48.720
+Así que, aquí es donde puede obtener toda la información
+
+112
+00:04:48.720 --> 00:04:51.690
+sobre su rol y luego donde puede administrar su rol.
+
+113
+00:04:51.690 --> 00:04:54.180
+Así que, lo siguiente que quiero hacer es crear un usuario.
+
+114
+00:04:54.180 --> 00:04:57.180
+Así que voy a hacer clic en usuarios en la navegación de la izquierda,
+
+115
+00:04:57.180 --> 00:04:59.010
+entonces voy a hacer clic en Añadir usuarios,
+
+116
+00:04:59.010 --> 00:05:00.420
+y vamos a dar a este usuario un nombre.
+
+117
+00:05:00.420 --> 00:05:03.333
+Digamos que es EC2Admin,
+
+118
+00:05:04.440 --> 00:05:06.990
+y luego quiero hacer clic en la casilla de verificación
+
+119
+00:05:06.990 --> 00:05:09.390
+para Habilitar el acceso a la consola.
+
+120
+00:05:09.390 --> 00:05:11.700
+Así que lo que esto significa es que quiero permitir que este usuario
+
+121
+00:05:11.700 --> 00:05:15.090
+sea capaz de iniciar sesión en la consola de administración de AWS.
+
+122
+00:05:15.090 --> 00:05:17.910
+Así que tenga en cuenta, por defecto, esto no estaba marcado,
+
+123
+00:05:17.910 --> 00:05:19.860
+lo que significa que sólo porque usted crea un usuario
+
+124
+00:05:19.860 --> 00:05:22.140
+no significa que tengan acceso a la consola.
+
+125
+00:05:22.140 --> 00:05:23.790
+Voy a seguir adelante y marcar esto,
+
+126
+00:05:23.790 --> 00:05:24.810
+y luego voy a permitir
+
+127
+00:05:24.810 --> 00:05:28.170
+que se cree una contraseña auto-generada,
+
+128
+00:05:28.170 --> 00:05:30.750
+y luego quiero dejar la casilla marcada
+
+129
+00:05:30.750 --> 00:05:33.690
+para que los usuarios creen una contraseña en el próximo inicio de sesión.
+
+130
+00:05:33.690 --> 00:05:36.240
+Así que esto les permitirá cambiar su contraseña
+
+131
+00:05:36.240 --> 00:05:38.580
+una vez que inicien sesión por primera vez.
+
+132
+00:05:38.580 --> 00:05:41.460
+Ahora vamos a hacer clic en Siguiente, y lo siguiente que quiero hacer,
+
+133
+00:05:41.460 --> 00:05:45.180
+es que voy a añadir los usuarios a un grupo.
+
+134
+00:05:45.180 --> 00:05:47.070
+Actualmente no tenemos ningún grupo,
+
+135
+00:05:47.070 --> 00:05:49.530
+así que voy a seguir adelante y hacer clic en Crear grupo,
+
+136
+00:05:49.530 --> 00:05:51.450
+y luego lo que quiero hacer es añadir un nombre de grupo.
+
+137
+00:05:51.450 --> 00:05:53.457
+Digamos que es EC2Admins,
+
+138
+00:05:57.060 --> 00:05:59.700
+y luego quiero adjuntar una política a este grupo,
+
+139
+00:05:59.700 --> 00:06:02.130
+porque sabemos que es una mejor práctica
+
+140
+00:06:02.130 --> 00:06:07.130
+adjuntar políticas a grupos, no a usuarios directamente.
+
+141
+00:06:07.620 --> 00:06:12.210
+Así que voy a seleccionar la política AmazonEC2FullAccess,
+
+142
+00:06:12.210 --> 00:06:15.510
+y luego voy a desplazarme hacia abajo y hacer clic en Crear grupo de usuarios,
+
+143
+00:06:15.510 --> 00:06:20.010
+y ahora puedo seleccionar este grupo de usuarios para agregar este usuario en,
+
+144
+00:06:20.010 --> 00:06:22.170
+y luego puedo hacer clic en siguiente,
+
+145
+00:06:22.170 --> 00:06:23.520
+y luego podemos desplazarnos hacia abajo.
+
+146
+00:06:23.520 --> 00:06:24.750
+Podemos ver los permisos
+
+147
+00:06:24.750 --> 00:06:27.600
+que este único usuario tiene actualmente.
+
+148
+00:06:27.600 --> 00:06:29.700
+Estará heredando los permisos
+
+149
+00:06:29.700 --> 00:06:31.290
+del grupo EC2Admins,
+
+150
+00:06:31.290 --> 00:06:33.780
+y luego también tiene directamente adjunto
+
+151
+00:06:33.780 --> 00:06:36.780
+el permiso IAMUserChangePassword,
+
+152
+00:06:36.780 --> 00:06:39.270
+que permitirá a este usuario cambiar su contraseña.
+
+153
+00:06:39.270 --> 00:06:40.870
+Así que ahora podemos hacer clic en Crear usuario,
+
+154
+00:06:42.180 --> 00:06:46.650
+y ahora podemos seguir adelante y hacer clic en Volver a la lista de usuarios.
+
+155
+00:06:46.650 --> 00:06:48.660
+No hemos descargado la contraseña para esto, está bien.
+
+156
+00:06:48.660 --> 00:06:51.060
+No tengo intención de utilizar realmente este usuario.
+
+157
+00:06:51.060 --> 00:06:52.470
+Es sólo para fines de demostración,
+
+158
+00:06:52.470 --> 00:06:54.480
+así que haremos clic en Continuar,
+
+159
+00:06:54.480 --> 00:06:57.090
+y ahora si hago clic en este usuario,
+
+160
+00:06:57.090 --> 00:06:58.560
+lo que quiero hacer a continuación es hacer clic en
+
+161
+00:06:58.560 --> 00:07:01.140
+la pestaña Credenciales de seguridad,
+
+162
+00:07:01.140 --> 00:07:04.050
+y si nos desplazamos hacia abajo, puede ver
+
+163
+00:07:04.050 --> 00:07:07.170
+que tenemos este panel aquí llamado Claves de acceso.
+
+164
+00:07:07.170 --> 00:07:10.650
+Las claves de acceso van a permitir a tus usuarios
+
+165
+00:07:10.650 --> 00:07:12.750
+hacer llamadas programáticas a AWS
+
+166
+00:07:12.750 --> 00:07:15.240
+usando cosas como la línea de comandos de AWS,
+
+167
+00:07:15.240 --> 00:07:17.790
+los kits de desarrollo de software de AWS,
+
+168
+00:07:17.790 --> 00:07:20.880
+donde quizás estén desarrollando localmente en su portátil,
+
+169
+00:07:20.880 --> 00:07:24.690
+y necesitan que su código sea capaz de llegar a AWS,
+
+170
+00:07:24.690 --> 00:07:27.300
+así que voy a seguir adelante y crear una clave de acceso aquí,
+
+171
+00:07:27.300 --> 00:07:30.930
+y luego quiero usar esto para la línea de comandos,
+
+172
+00:07:30.930 --> 00:07:34.050
+y luego voy a seguir adelante y hacer clic en la casilla de verificación
+
+173
+00:07:34.050 --> 00:07:36.420
+para "Entiendo la recomendación anterior."
+
+174
+00:07:36.420 --> 00:07:37.920
+Lo que esto está diciendo es que está diciendo: "Hey,
+
+175
+00:07:37.920 --> 00:07:39.960
+hay otro servicio en el navegador que usted
+
+176
+00:07:39.960 --> 00:07:43.830
+podría utilizar para utilizar la CLI de AWS llamado AWS CloudShell."
+
+177
+00:07:43.830 --> 00:07:47.220
+Vamos a seguir adelante y crear las claves de acceso de todos modos.
+
+178
+00:07:47.220 --> 00:07:50.670
+Voy a seleccionar esta casilla de verificación y luego haga clic en Siguiente,
+
+179
+00:07:50.670 --> 00:07:52.560
+y luego voy a hacer clic en Siguiente de nuevo,
+
+180
+00:07:52.560 --> 00:07:55.290
+y haga clic en Crear clave de acceso.
+
+181
+00:07:55.290 --> 00:07:56.160
+Muy bien, así que aquí puede ver,
+
+182
+00:07:56.160 --> 00:07:58.290
+tenemos nuestra clave de acceso aquí,
+
+183
+00:07:58.290 --> 00:08:00.090
+y luego tenemos nuestra clave de acceso secreta,
+
+184
+00:08:00.090 --> 00:08:02.550
+que no se está mostrando actualmente en esta página,
+
+185
+00:08:02.550 --> 00:08:04.890
+pero podría hacer clic en mostrar y luego copiarla,
+
+186
+00:08:04.890 --> 00:08:08.160
+y usaría esta clave de acceso y la clave de acceso secreta
+
+187
+00:08:08.160 --> 00:08:12.810
+para poder configurar su línea de comandos localmente.
+
+188
+00:08:12.810 --> 00:08:15.900
+Ahora voy a hacer clic en Listo y luego en Continuar.
+
+189
+00:08:15.900 --> 00:08:17.280
+Así que ahora para limpiar un poco,
+
+190
+00:08:17.280 --> 00:08:18.510
+voy a seleccionar Acciones
+
+191
+00:08:18.510 --> 00:08:21.690
+y luego voy a hacer clic en Desactivar y luego en Desactivar,
+
+192
+00:08:21.690 --> 00:08:24.330
+y luego voy a hacer clic en Acciones y luego en Eliminar,
+
+193
+00:08:24.330 --> 00:08:27.960
+y luego podemos copiar y pegar el ID de la clave de acceso aquí,
+
+194
+00:08:27.960 --> 00:08:30.030
+y luego hacer clic en Eliminar.
+
+195
+00:08:30.030 --> 00:08:31.560
+Muy bien, eso es todo por este video.
+
+196
+00:08:31.560 --> 00:08:34.510
+Esperemos que sepa un poco más sobre roles y usuarios.

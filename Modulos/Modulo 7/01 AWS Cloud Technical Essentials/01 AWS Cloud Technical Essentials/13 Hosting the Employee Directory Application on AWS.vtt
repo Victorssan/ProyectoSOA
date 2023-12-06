@@ -1,0 +1,505 @@
+WEBVTT
+
+1
+00:00:01.830 --> 00:00:02.663
+- Muy bien.
+
+2
+00:00:02.663 --> 00:00:04.380
+Ha aprendido algo de vocabulario de AWS,
+
+3
+00:00:04.380 --> 00:00:06.810
+algunos de los conceptos que subyacen a la computación en nube
+
+4
+00:00:06.810 --> 00:00:09.600
+así como algunos de los aspectos específicos en torno a la identidad en la nube
+
+5
+00:00:09.600 --> 00:00:11.700
+y la gestión del acceso.
+
+6
+00:00:11.700 --> 00:00:13.350
+A modo de repaso, echemos un vistazo
+
+7
+00:00:13.350 --> 00:00:16.110
+al diagrama de arquitectura que vamos a construir.
+
+8
+00:00:16.110 --> 00:00:19.290
+Recordará que es bastante complicado a simple vista.
+
+9
+00:00:19.290 --> 00:00:21.480
+Hay muchos servicios diferentes trabajando juntos
+
+10
+00:00:21.480 --> 00:00:22.650
+para alojar esta solución
+
+11
+00:00:22.650 --> 00:00:25.050
+y conseguir que todo esto se construya de esta manera
+
+12
+00:00:25.050 --> 00:00:27.690
+llevará algo de tiempo y comprensión.
+
+13
+00:00:27.690 --> 00:00:30.330
+Tendrá la oportunidad de ver cómo se construye cada pieza
+
+14
+00:00:30.330 --> 00:00:32.400
+a lo largo de las próximas lecciones.
+
+15
+00:00:32.400 --> 00:00:33.900
+Lo que quiero hacer ahora es mostrarle
+
+16
+00:00:33.900 --> 00:00:36.660
+cómo vamos a alojar nuestra aplicación de directorio de empleados
+
+17
+00:00:36.660 --> 00:00:39.210
+utilizando un servicio llamado Amazon EC2
+
+18
+00:00:39.210 --> 00:00:42.060
+que se ha mencionado en vídeos anteriores.
+
+19
+00:00:42.060 --> 00:00:44.280
+Me parece que la mejor manera de explicarles
+
+20
+00:00:44.280 --> 00:00:48.180
+cómo funcionan estos servicios es mostrarles cómo funcionan.
+
+21
+00:00:48.180 --> 00:00:50.370
+Así que lo que vamos a hacer es
+
+22
+00:00:50.370 --> 00:00:53.940
+llamar a Seth aquí para lanzar una instancia de Amazon EC2
+
+23
+00:00:53.940 --> 00:00:56.220
+y alojar la aplicación de directorio de empleados
+
+24
+00:00:56.220 --> 00:00:58.507
+utilizando los valores predeterminados proporcionados por AWS.
+
+25
+00:00:59.449 --> 00:01:02.790
+AWS le proporciona algo llamado una VPC predeterminada
+
+26
+00:01:02.790 --> 00:01:06.240
+que es una red privada para sus recursos de AWS.
+
+27
+00:01:06.240 --> 00:01:08.880
+Cada instancia EC2 que lances usando AWS
+
+28
+00:01:08.880 --> 00:01:11.130
+debe vivir dentro de una red.
+
+29
+00:01:11.130 --> 00:01:12.930
+Así que para completar esta demo
+
+30
+00:01:12.930 --> 00:01:14.610
+con la cantidad limitada de información
+
+31
+00:01:14.610 --> 00:01:17.400
+que te hemos mostrado sobre los servicios de AWS,
+
+32
+00:01:17.400 --> 00:01:20.610
+usaremos la red por defecto proporcionada por AWS
+
+33
+00:01:20.610 --> 00:01:23.070
+y aceptaremos la mayoría de los valores por defecto
+
+34
+00:01:23.070 --> 00:01:25.260
+para lanzar una instancia EC2.
+
+35
+00:01:25.260 --> 00:01:27.990
+Traigamos a Seth para que nos ayude con esto.
+
+36
+00:01:27.990 --> 00:01:28.950
+Hey Seth.
+
+37
+00:01:28.950 --> 00:01:29.783
+- Hola, Morgan.
+
+38
+00:01:29.783 --> 00:01:31.980
+¿Es hora de lanzar nuestra primera instancia EC2?
+
+39
+00:01:31.980 --> 00:01:32.910
+- Lo es.
+
+40
+00:01:32.910 --> 00:01:34.650
+Utilizaremos la VPC por defecto
+
+41
+00:01:34.650 --> 00:01:36.030
+para lanzar esta primera instancia,
+
+42
+00:01:36.030 --> 00:01:37.710
+y configuraremos lo mínimo
+
+43
+00:01:37.710 --> 00:01:39.600
+para poner en marcha nuestra aplicación.
+
+44
+00:01:39.600 --> 00:01:41.670
+¿Suena bien? - Sí. Lo tengo.
+
+45
+00:01:41.670 --> 00:01:42.723
+Vamos a empezar.
+
+46
+00:01:44.160 --> 00:01:46.890
+Ya estoy en la consola de administración de EC2
+
+47
+00:01:46.890 --> 00:01:50.880
+y voy a navegar hasta el servicio Amazon EC2.
+
+48
+00:01:50.880 --> 00:01:54.690
+Como Morgan ya ha mencionado, Amazon EC2 es un servicio de computación
+
+49
+00:01:54.690 --> 00:01:57.360
+que le permite alojar máquinas virtuales.
+
+50
+00:01:57.360 --> 00:02:00.120
+Usted aprenderá mucho sobre este tema muy pronto
+
+51
+00:02:00.120 --> 00:02:04.620
+pero por ahora vamos a crear simplemente una instancia EC2
+
+52
+00:02:04.620 --> 00:02:06.270
+para tratar de ayudarle a envolver su mente
+
+53
+00:02:06.270 --> 00:02:09.213
+en torno al uso de los servicios de AWS bajo demanda.
+
+54
+00:02:10.050 --> 00:02:13.230
+A partir de aquí, lanzaremos una nueva instancia EC2.
+
+55
+00:02:13.230 --> 00:02:17.610
+Una instancia es simplemente lo que llamamos una única máquina virtual.
+
+56
+00:02:17.610 --> 00:02:20.100
+Ahora tenemos que seleccionar las configuraciones
+
+57
+00:02:20.100 --> 00:02:22.290
+para esta instancia EC2.
+
+58
+00:02:22.290 --> 00:02:26.250
+Repasaremos estas configuraciones en detalle más adelante.
+
+59
+00:02:26.250 --> 00:02:28.260
+Podemos darle un nombre a esta instancia,
+
+60
+00:02:28.260 --> 00:02:30.690
+la llamaré employee-web-app
+
+61
+00:02:30.690 --> 00:02:34.740
+y luego seleccionaremos las opciones elegibles de la capa gratuita
+
+62
+00:02:34.740 --> 00:02:39.420
+utilizando una AMI Linux o Imagen de máquina de Amazon.
+
+63
+00:02:39.420 --> 00:02:42.360
+Y luego desplazándonos hacia abajo a la siguiente sección
+
+64
+00:02:42.360 --> 00:02:45.870
+seleccionaremos el t2.micro elegible para la capa gratuita
+
+65
+00:02:45.870 --> 00:02:47.283
+para el tipo de instancia.
+
+66
+00:02:48.600 --> 00:02:51.780
+A continuación, normalmente necesitamos seleccionar un par de claves.
+
+67
+00:02:51.780 --> 00:02:55.290
+Esto se utilizaría para SSH en la instancia
+
+68
+00:02:55.290 --> 00:02:56.940
+pero no necesitaremos hacer esto,
+
+69
+00:02:56.940 --> 00:03:00.660
+así que voy a seleccionar proceder sin un par de claves
+
+70
+00:03:00.660 --> 00:03:03.423
+y continuar desplazándonos a la configuración de red.
+
+71
+00:03:04.620 --> 00:03:06.840
+Aquí seleccionaremos la red.
+
+72
+00:03:06.840 --> 00:03:10.533
+Así que mirando a los ajustes de red, haremos clic en Editar.
+
+73
+00:03:11.880 --> 00:03:15.690
+A continuación, podemos seleccionar la VPC y la subred para esta instancia.
+
+74
+00:03:15.690 --> 00:03:19.590
+Y como hemos comentado antes, utilizaremos la VPC por defecto
+
+75
+00:03:19.590 --> 00:03:22.383
+y dejaremos la subred en Sin preferencia.
+
+76
+00:03:23.670 --> 00:03:27.060
+La VPC por defecto tiene configuraciones en su lugar
+
+77
+00:03:27.060 --> 00:03:30.270
+que hacen que este proceso de experimentación sea mucho más fácil
+
+78
+00:03:30.270 --> 00:03:33.210
+cuando se está empezando con AWS.
+
+79
+00:03:33.210 --> 00:03:36.243
+De nuevo, definiremos todas estas cosas más adelante.
+
+80
+00:03:37.080 --> 00:03:38.940
+Continuando con las configuraciones de red,
+
+81
+00:03:38.940 --> 00:03:41.100
+crearemos un nuevo grupo de seguridad
+
+82
+00:03:41.100 --> 00:03:42.960
+que es un cortafuegos a nivel de instancia
+
+83
+00:03:42.960 --> 00:03:46.410
+que permitirá que el tráfico HTTP y HTTPS en
+
+84
+00:03:46.410 --> 00:03:48.330
+llegue a la instancia.
+
+85
+00:03:48.330 --> 00:03:51.693
+Así que añadiremos reglas de entrada para ambos.
+
+86
+00:03:53.820 --> 00:03:58.170
+Ahora nos desplazaremos hacia abajo y expandiremos detalles avanzados.
+
+87
+00:03:58.170 --> 00:04:00.210
+Aceptaremos la mayoría de los valores predeterminados aquí
+
+88
+00:04:00.210 --> 00:04:03.810
+excepto el perfil de instancia IAM y los datos de usuario
+
+89
+00:04:03.810 --> 00:04:06.210
+para los que proporcionaremos un valor.
+
+90
+00:04:06.210 --> 00:04:10.380
+Para el perfil de instancia IAM utilizaremos el rol IAM
+
+91
+00:04:10.380 --> 00:04:12.450
+que utilizará la aplicación,
+
+92
+00:04:12.450 --> 00:04:14.730
+aunque esto no entrará en juego hasta más adelante
+
+93
+00:04:14.730 --> 00:04:17.190
+cuando tengamos nuestro bucket S3 creado.
+
+94
+00:04:17.190 --> 00:04:19.470
+Pero por ahora, hagamos clic en el desplegable
+
+95
+00:04:19.470 --> 00:04:21.603
+y seleccionemos ese rol IAM.
+
+96
+00:04:23.100 --> 00:04:25.800
+Ahora, desplazándonos hacia abajo hasta los datos de usuario,
+
+97
+00:04:25.800 --> 00:04:28.440
+esto es un script que se va a ejecutar
+
+98
+00:04:28.440 --> 00:04:30.330
+cuando arranque la instancia.
+
+99
+00:04:30.330 --> 00:04:34.080
+Sigamos adelante y peguemos nuestro script de datos de usuario.
+
+100
+00:04:34.080 --> 00:04:37.470
+Este script descargará el código fuente de la aplicación,
+
+101
+00:04:37.470 --> 00:04:40.890
+iniciará el servidor web y arrancará el código de la aplicación
+
+102
+00:04:40.890 --> 00:04:44.040
+para que esté lista para empezar a gestionar peticiones
+
+103
+00:04:44.040 --> 00:04:46.380
+mientras que usted podría haber lanzado la instancia
+
+104
+00:04:46.380 --> 00:04:48.870
+y luego haberse conectado a ella a través de SSH,
+
+105
+00:04:48.870 --> 00:04:52.080
+configurado e iniciado su aplicación manualmente.
+
+106
+00:04:52.080 --> 00:04:53.580
+Nosotros hemos decidido utilizar un script
+
+107
+00:04:53.580 --> 00:04:56.550
+para automatizar este proceso en el lanzamiento.
+
+108
+00:04:56.550 --> 00:05:00.060
+Muy bien, ahora podemos hacer clic en Lanzar instancia.
+
+109
+00:05:00.060 --> 00:05:03.030
+La instancia puede tardar unos minutos en arrancar
+
+110
+00:05:03.030 --> 00:05:04.503
+así que vamos a esperar a que eso ocurra.
+
+111
+00:05:05.700 --> 00:05:07.950
+Y ahora ya está en marcha.
+
+112
+00:05:07.950 --> 00:05:10.740
+Para acceder a la instancia, copie la dirección IP
+
+113
+00:05:10.740 --> 00:05:13.230
+de los detalles que aparecen a continuación,
+
+114
+00:05:13.230 --> 00:05:16.950
+péguela en una nueva pestaña del navegador, y ya está.
+
+115
+00:05:16.950 --> 00:05:18.603
+Ya está en marcha y lista para funcionar.
+
+116
+00:05:20.160 --> 00:05:21.840
+Morgan, ¿qué te parece?
+
+117
+00:05:21.840 --> 00:05:22.920
+- Eso se veía muy bien.
+
+118
+00:05:22.920 --> 00:05:25.050
+Es exactamente lo que yo esperaría en este punto
+
+119
+00:05:25.050 --> 00:05:27.990
+porque no hay datos que se sirve de una base de datos
+
+120
+00:05:27.990 --> 00:05:30.870
+así que espero ver sólo una página de inicio sin información.
+
+121
+00:05:30.870 --> 00:05:31.950
+Así que eso es genial.
+
+122
+00:05:31.950 --> 00:05:34.680
+Gracias Seth por guiarnos a través de eso.
+
+123
+00:05:34.680 --> 00:05:37.350
+En las próximas lecciones, vamos a discutir los detalles
+
+124
+00:05:37.350 --> 00:05:40.740
+no sólo de EC2, sino también de redes en AWS.
+
+125
+00:05:40.740 --> 00:05:42.390
+Y usted entenderá cómo todo
+
+126
+00:05:42.390 --> 00:05:45.903
+acabamos de tipo de glosa sobre el funcionamiento real, así que estad atentos.

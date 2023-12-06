@@ -1,0 +1,301 @@
+WEBVTT
+
+1
+00:00:01.110 --> 00:00:02.790
+- Cuando crea una cuenta de AWS,
+
+2
+00:00:02.790 --> 00:00:04.290
+se registra con una dirección de correo electrónico
+
+3
+00:00:04.290 --> 00:00:06.090
+y crea una contraseña.
+
+4
+00:00:06.090 --> 00:00:07.590
+La dirección de correo electrónico con la que se registra
+
+5
+00:00:07.590 --> 00:00:10.950
+se convierte en el usuario raíz de la cuenta de AWS.
+
+6
+00:00:10.950 --> 00:00:13.170
+Este usuario raíz tiene acceso sin restricciones
+
+7
+00:00:13.170 --> 00:00:15.900
+a todo lo que hay en su cuenta en la mayoría de los casos.
+
+8
+00:00:15.900 --> 00:00:17.490
+Hablaremos en una lección posterior
+
+9
+00:00:17.490 --> 00:00:19.590
+de qué tipos de usuarios se pueden restringir
+
+10
+00:00:19.590 --> 00:00:20.760
+y cómo hacerlo.
+
+11
+00:00:20.760 --> 00:00:22.740
+Pero por ahora, quiero que entienda
+
+12
+00:00:22.740 --> 00:00:24.720
+que cuando inicia sesión en su cuenta de AWS
+
+13
+00:00:24.720 --> 00:00:26.640
+utilizando una dirección de correo electrónico y una contraseña,
+
+14
+00:00:26.640 --> 00:00:29.910
+significa que está iniciando sesión como usuario raíz.
+
+15
+00:00:29.910 --> 00:00:32.850
+Este usuario raíz puede hacer lo que quiera en la cuenta.
+
+16
+00:00:32.850 --> 00:00:35.580
+Tiene todos los poderes que se pueden tener.
+
+17
+00:00:35.580 --> 00:00:38.130
+Y un gran poder conlleva una gran responsabilidad,
+
+18
+00:00:38.130 --> 00:00:39.810
+o algo así.
+
+19
+00:00:39.810 --> 00:00:42.510
+Así que sabiendo que el usuario root es todopoderoso,
+
+20
+00:00:42.510 --> 00:00:44.550
+debería hacer todo lo posible
+
+21
+00:00:44.550 --> 00:00:48.900
+para asegurarse de que nadie puede acceder a este usuario root.
+
+22
+00:00:48.900 --> 00:00:52.200
+Digamos que hay una especie de actor nefasto,
+
+23
+00:00:52.200 --> 00:00:53.700
+y tienen un malvado plan
+
+24
+00:00:53.700 --> 00:00:57.000
+para iniciar sesión en su cuenta de AWS con su usuario raíz,
+
+25
+00:00:57.000 --> 00:01:00.030
+obteniendo acceso a todos los poderes y permisos.
+
+26
+00:01:00.030 --> 00:01:02.940
+Y van y borran todos sus valiosos datos
+
+27
+00:01:02.940 --> 00:01:04.680
+y recursos de AWS,
+
+28
+00:01:04.680 --> 00:01:07.080
+y en su lugar, ponen en marcha una encantadora
+
+29
+00:01:07.080 --> 00:01:10.440
+y costosa operación de minería de criptodivisas.
+
+30
+00:01:10.440 --> 00:01:12.930
+Dejándole a usted con la factura y ninguno de sus datos
+
+31
+00:01:12.930 --> 00:01:16.140
+mientras ellos se marchan con una criptocartera llena.
+
+32
+00:01:16.140 --> 00:01:18.300
+Suena menos que ideal.
+
+33
+00:01:18.300 --> 00:01:20.490
+Bueno, ¿cómo puede evitar que eso ocurra?
+
+34
+00:01:20.490 --> 00:01:23.280
+Usted podría, por supuesto, crear una contraseña difícil de descifrar,
+
+35
+00:01:23.280 --> 00:01:26.430
+y eso le dará cierto nivel de seguridad.
+
+36
+00:01:26.430 --> 00:01:27.810
+Esto, sin embargo, es un ejemplo
+
+37
+00:01:27.810 --> 00:01:30.000
+de autenticación de factor único
+
+38
+00:01:30.000 --> 00:01:32.850
+donde todo lo que alguien necesita hacer es coincidir la contraseña
+
+39
+00:01:32.850 --> 00:01:33.900
+con la dirección de correo electrónico,
+
+40
+00:01:33.900 --> 00:01:35.940
+y boom, están dentro.
+
+41
+00:01:35.940 --> 00:01:37.710
+Recomendamos como mejor práctica
+
+42
+00:01:37.710 --> 00:01:40.350
+que justo después de crear su cuenta de AWS,
+
+43
+00:01:40.350 --> 00:01:42.780
+habilite la autenticación multifactor,
+
+44
+00:01:42.780 --> 00:01:45.360
+o MFA, en el usuario raíz.
+
+45
+00:01:45.360 --> 00:01:48.690
+MFA introduce una pieza única adicional de información
+
+46
+00:01:48.690 --> 00:01:52.200
+que necesita introducir para obtener acceso a la cuenta.
+
+47
+00:01:52.200 --> 00:01:55.350
+Hay una variedad de dispositivos, virtuales o físicos,
+
+48
+00:01:55.350 --> 00:01:57.060
+que generan contraseñas de un solo uso
+
+49
+00:01:57.060 --> 00:02:00.870
+que pueden integrarse con su cuenta de AWS para MFA.
+
+50
+00:02:00.870 --> 00:02:04.140
+Por ejemplo, yo personalmente utilizo un dispositivo MFA virtual
+
+51
+00:02:04.140 --> 00:02:05.850
+que es una aplicación en mi teléfono.
+
+52
+00:02:05.850 --> 00:02:09.000
+Esta aplicación produce una cadena de números de un solo uso
+
+53
+00:02:09.000 --> 00:02:10.500
+que escribo en la consola
+
+54
+00:02:10.500 --> 00:02:13.770
+después de iniciar sesión utilizando mi dirección de correo electrónico y contraseña.
+
+55
+00:02:13.770 --> 00:02:15.450
+Aunque alguien adivinara la contraseña,
+
+56
+00:02:15.450 --> 00:02:17.280
+no podría acceder a la cuenta
+
+57
+00:02:17.280 --> 00:02:21.540
+sin los números generados por el dispositivo MFA virtual.
+
+58
+00:02:21.540 --> 00:02:25.050
+Independientemente del tipo de dispositivo MFA que decida utilizar,
+
+59
+00:02:25.050 --> 00:02:27.420
+e incluiré un enlace a los dispositivos compatibles
+
+60
+00:02:27.420 --> 00:02:29.190
+y las lecturas para que las consulte,
+
+61
+00:02:29.190 --> 00:02:32.400
+lo más importante es que esté utilizando MFA
+
+62
+00:02:32.400 --> 00:02:33.600
+en el usuario raíz.
+
+63
+00:02:33.600 --> 00:02:36.450
+De ese modo, aunque alguien, el actor nefasto,
+
+64
+00:02:36.450 --> 00:02:37.440
+descifre su contraseña,
+
+65
+00:02:37.440 --> 00:02:40.200
+seguirá sin poder acceder a su cuenta.
+
+66
+00:02:40.200 --> 00:02:42.180
+Todo gracias a MFA.
+
+67
+00:02:42.180 --> 00:02:44.760
+Además de habilitar MFA para el usuario raíz,
+
+68
+00:02:44.760 --> 00:02:48.030
+le recomendamos encarecidamente que no utilice el usuario raíz
+
+69
+00:02:48.030 --> 00:02:49.680
+para sus tareas cotidianas,
+
+70
+00:02:49.680 --> 00:02:51.570
+incluso las administrativas.
+
+71
+00:02:51.570 --> 00:02:53.700
+En realidad, sólo hay unas pocas acciones
+
+72
+00:02:53.700 --> 00:02:55.830
+que requieran el acceso del usuario raíz.
+
+73
+00:02:55.830 --> 00:02:58.680
+A continuación, aprenderá a crear un usuario IAM,
+
+74
+00:02:58.680 --> 00:03:01.170
+y a utilizarlo para iniciar sesión en su cuenta AWS
+
+75
+00:03:01.170 --> 00:03:03.123
+en lugar de utilizar el usuario raíz.
